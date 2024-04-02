@@ -1,0 +1,109 @@
+﻿@{
+    ViewData["Title"] = "My Work";
+}
+
+<style>
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .product-card {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        overflow: hidden;
+        position: relative;
+    }
+
+        .product-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+    .product-details {
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 10px;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .product-name {
+        margin: 0;
+        font-weight: bold;
+    }
+
+    .product-price {
+        margin: 0;
+        color: #777;
+    }
+</style>
+
+<h1>@ViewData["Title"]</h1>
+<div class="product-grid">
+    <div class="product-card">
+        <img src="c:\users\lab_services_student\source\repos\databasepoe\databasepoe\views\home\mug1.jpg" alt="Artisan Brew Cup" width="300" height="200"> 
+        <div class="product-details">
+            <p class="product-name">Artisan Brew Cup</p>
+            <p class="product-price">R150.00</p>
+        </div>
+    </div>
+    <div class="product-card">
+        <img src="c:\users\lab_services_student\source\repos\databasepoe\databasepoe\views\home\mug2.jpg" alt="Hand Made Pottery Mug" width="300" height="200">
+        <div class="product-details">
+            <p class="product-name">Hand Made Pottery Mug</p>
+            <p class="product-price">R200.00</p>
+        </div>
+    </div>
+    <div class="product-card">
+        <img src="c:\users\lab_services_student\source\repos\databasepoe\databasepoe\views\home\mug3.jpg" alt="Clay Crafted Coffee Mug" width="300" height="200">
+        <div class="product-details">
+            <p class="product-name">Clay Crafted Coffee Mug</p>
+            <p class="product-price">R250.00</p>
+        </div>
+    </div>
+    <div class="product-card">
+        <img src="c:\users\lab_services_student\source\repos\databasepoe\databasepoe\views\home\bowl1.jpg" alt="Rustic Ceramic Soup Bowl" width="300" height="200">
+        <div class="product-details">
+            <p class="product-name">Rustic Ceramic Soup Bowlt</p>
+            <p class="product-price">R200.00</p>
+        </div>
+    </div>
+    <div class="product-card">
+        <img src="c:\users\lab_services_student\source\repos\databasepoe\databasepoe\views\home\bowl2.jpg" alt="Handcrafted Salad Serving Bowl" width="300" height="200">
+        <div class="product-details">
+            <p class="product-name">Handcrafted Salad Serving Bowl</p>
+            <p class="product-price">R275.00</p>
+        </div>
+    </div>
+    <div class="product-card">
+        <img src="c:\users\lab_services_student\source\repos\databasepoe\databasepoe\views\home\bowl3.jpg" alt="Clay Artisan Pasta Bowl" width="300" height="200">
+        <div class="product-details">
+            <p class="product-name">Clay Artisan Pasta Bowl</p>
+            <p class="product-price">R350.00</p>
+        </div>
+    </div>
+      <div class="product-card">
+        <img src="c:\users\lab_services_student\source\repos\databasepoe\databasepoe\views\home\plate1.jpg" alt="Hand-painted Dinner Plate" width="300" height="200">
+        <div class="product-details">
+            <p class="product-name">Hand-painted Dinner Plate</p>
+            <p class="product-price">R250.00</p>
+        </div>
+    </div>
+    <div class="product-card">
+        <img src="c:\users\lab_services_student\source\repos\databasepoe\databasepoe\views\home\plate2.jpg" alt="Artisanal Ceramic Dessert Plate" width="300" height="200">
+        <div class="product-details">
+            <p class="product-name">Artisanal Ceramic Dessert Plate</p>
+            <p class="product-price">R350.00</p>
+        </div>
+    </div>
+    <div class="product-card">
+        <img src="c:\users\lab_services_student\source\repos\databasepoe\databasepoe\views\home\plate3.jpg" alt="Stoneware Salad Plate" width="300" height="200">
+        <div class="product-details">
+            <p class="product-name">Stoneware Salad Plate</p>
+            <p class="product-price">R450.00</p>
+        </div>
+    </div>
+</div>
