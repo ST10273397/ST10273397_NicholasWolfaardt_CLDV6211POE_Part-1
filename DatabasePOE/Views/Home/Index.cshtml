@@ -1,17 +1,100 @@
-﻿@{
+﻿@model int
+
+@{
     ViewData["Title"] = "Home Page";
+    var UserID = ViewData["UserID"];
+    var products = ViewData["Products"] as List<CLDV_POE.Models.ProductTable>;
 }
 
-<section id="description">
-    <h2>What is Khumalo Craft?</h2>
-    <p>Khumalo Craft is your destination for unique, handcrafted products from artisans around the world. Discover the beauty and craftsmanship of handmade goods.
-    <br /><a asp-area="" asp-controller="Home" asp-action="About">Learn More</a></p>
-    <hr/>
-</section>
-<section id="item-of-the-day">
-    <h2>Item of the Day</h2>
-        <img src="mug1.jpg" alt="Product of the Day" width="500" height="400"/>
-        <h3>Handcrafted Ceramic Mug</h3>
-        <p>R150.00</p>
-        <a asp-area="" asp-controller="Home" asp-action="Work">Show All Products</a>
-</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Khumalo Craft</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-wEmeIV1mKuiNpJSK3siM7k2WKGCL6oHp8KATV7fLSmzP5h5p5DYjKg4ckZo4Nlg" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+        }
+
+        #description {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+            #description h2 {
+                color: #343a40;
+                margin-bottom: 15px;
+            }
+
+            #description p {
+                font-size: 1.2rem;
+            }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+        .card-text {
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <section id="description" class="py-4">
+        <div class="container">
+            <h2>What is Khumalo Craft?</h2>
+            <p>
+                Khumalo Craft is your destination for unique, handcrafted products from artisans around the world. Discover the beauty and craftsmanship of handmade goods.
+                <br /><a class="btn btn-link" asp-area="" asp-controller="Home" asp-action="About">Learn More</a>
+            </p>
+            <hr />
+        </div>
+    </section>
+    <div class="container">
+        @if (UserID != null)
+        {
+            <p>User ID: @UserID</p>
+        }
+
+        <h2 class="text-center my-4">All Products</h2>
+        <div class="row">
+            @foreach (var product in products)
+            {
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">@product.ProductName</h5>
+                            <p class="card-text">Price: R @product.ProductPrice</p>
+                            <p class="card-text">Category: @product.ProductCategory</p>
+                            <p class="card-text">
+                                Available? @if (product.ProductAvailability > 0)
+                                {
+                                    <span>Yes</span>
+                                }
+                                else
+                                {
+                                    <span>No</span>
+                                }
+                            </p>
+                            <form asp-controller="Transaction" asp-action="PlaceOrder" method="post">
+                                <input type="hidden" name="UserID" value="@UserID" />
+                                <input type="hidden" name="ProductID" value="@product.ProductID" />
+                                <button type="submit" class="btn btn-primary">Place Order</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</body>
+</html>

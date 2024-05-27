@@ -7,42 +7,119 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/DatabasePOE.styles.css" asp-append-version="true" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f0e8;
+            color: #333;
+        }
+
+        h1, .navbar-brand {
+            font-family: "Arial Black", sans-serif;
+            color: #d57e7e;
+        }
+
+        .navbar {
+            background-color: #f0e5d8;
+            border-bottom: 2px solid #d57e7e;
+        }
+
+        .navbar-nav .nav-link {
+            color: #6e573f;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+
+            .navbar-nav .nav-link:hover {
+                color: #d57e7e;
+            }
+
+        .navbar-nav .active .nav-link {
+            color: #d57e7e;
+            font-weight: bold;
+        }
+
+        .footer {
+            background-color: #d57e7e;
+            color: black;
+            padding: 1px 0;
+        }
+
+            .footer a {
+                color: black;
+                text-decoration: none;
+                transition: color 0.3s;
+            }
+
+                .footer a:hover {
+                    color: white;
+                }
+
+        .container {
+            margin-top: 5px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 5px;
+        }
+
+        .artistic-border {
+            border: 3px dashed #d57e7e;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .artistic-button {
+            background-color: #d57e7e;
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+            .artistic-button:hover {
+                background-color: #c45b5b;
+            }
+    </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-light">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">KhumaloCraft</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                <div class="collapse navbar-collapse justify-content-center">
+                    <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="About">About Us</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="About">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Work">My Work</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="MyWork">My Work</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contact">Contact Us</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Contact">Contact Us</a>
                         </li>
                     </ul>
+                </div>
+                <div class="d-flex align-items-center">
+                    <a class="nav-link text-dark" href=>User/Profile</a>
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
+    <div class="container artistic-border">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-
-    <footer class="border-top footer text-muted">
+    <footer class="footer text-center">
         <div class="container">
             &copy; 2024 Khumalo Craft. All rights reserved. <a asp-area="" asp-controller="Home" asp-action="Contact">Contact Us</a>
         </div>
